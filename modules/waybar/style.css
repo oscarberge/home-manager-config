@@ -1,0 +1,167 @@
+@define-color background #3b302a;
+@define-color foreground #e8edf3;
+@define-color accent #ffb454;
+@define-color muted #aab5c1;
+@define-color alert #f55e64;
+@define-color launcher #7ebae4;
+@define-color workspace #e8bd70;
+@define-color success #26a65b;
+@define-color power_saver #a8c686;
+
+/* Typography */
+* {
+  font-size: 14px;
+  font-family: "JetBrainsMono Nerd Font Propo";
+}
+
+window#waybar {
+  all: unset;
+}
+
+/* Bar group surfaces and outer gutters */
+.modules-left,
+.modules-center,
+.modules-right {
+  min-height: 34px;
+  padding: 0 5px;
+  border-radius: 8px;
+  background: alpha(@background, .75);
+}
+
+.modules-left {
+  margin: 6px 0 6px 6px;
+}
+
+.modules-center {
+  margin: 6px 0;
+}
+
+.modules-right {
+  margin: 6px 6px 6px 0;
+}
+
+.modules-left > *,
+.modules-center > *,
+.modules-right > *,
+#group-expand > * {
+  min-height: 34px;
+}
+
+/* Shared module treatment */
+#custom-launcher,
+#clock,
+#pulseaudio,
+#bluetooth,
+#network,
+#power-profiles-daemon,
+#battery,
+#cpu,
+#memory,
+#temperature {
+  padding: 0 5px;
+  color: @foreground;
+  transition: color .15s ease;
+}
+
+#clock:hover,
+#custom-launcher:hover,
+#pulseaudio:hover,
+#bluetooth:hover,
+#network:hover,
+#power-profiles-daemon:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover {
+  color: @accent;
+}
+
+tooltip {
+  background: @background;
+  color: @foreground;
+  border-radius: 8px;
+}
+
+#custom-launcher {
+  color: @launcher;
+}
+
+#custom-separator {
+  color: alpha(@muted, .55);
+}
+
+/* Workspaces */
+#workspaces button {
+  all: unset;
+  min-height: 34px;
+  padding: 0 6px;
+  color: alpha(@workspace, .45);
+  transition: color .15s ease;
+}
+
+#workspaces button.focused {
+  color: @workspace;
+  text-shadow: 0 0 2px rgba(0, 0, 0, .5);
+}
+
+#workspaces button.persistent:not(.focused):not(.visible),
+#workspaces button.visible:not(.focused) {
+  color: alpha(@workspace, .45);
+}
+
+#workspaces button.urgent {
+  color: @alert;
+}
+
+#workspaces button:hover {
+  color: @workspace;
+}
+
+/* Battery and power profile states */
+#battery.charging {
+  color: @success;
+}
+
+#battery.warning:not(.charging) {
+  color: @accent;
+}
+
+#battery.critical:not(.charging) {
+  color: @alert;
+  animation: blink .5s linear infinite alternate;
+}
+
+/* Expandable module group */
+#group-expand,
+#custom-expand {
+  padding: 0 4px;
+}
+
+#custom-expand {
+  color: alpha(@muted, .65);
+  text-shadow: 0 0 2px rgba(0, 0, 0, .7);
+  transition: color .15s ease;
+}
+
+#custom-expand:hover {
+  color: @foreground;
+}
+
+#custom-endpoint {
+  color: alpha(@muted, .55);
+}
+
+#power-profiles-daemon.performance {
+  color: @accent;
+}
+
+#power-profiles-daemon.power-saver {
+  color: @power_saver;
+}
+
+/* Critical battery animation */
+@keyframes blink {
+  to {
+    color: @alert;
+  }
+}

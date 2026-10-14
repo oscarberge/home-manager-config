@@ -1,0 +1,409 @@
+:root {
+  --border-radius: 8px;
+  --padding: 10px;
+
+  --background: #1e232a;
+  --foreground: #e8edf3;
+  --accent: #ffb454;
+  --alert: #f55e64;
+  --muted: #aab5c1;
+  --shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+
+  --cc-bg: rgba(30, 35, 42, 0.96);
+  --border: none;
+  --noti-border-color: transparent;
+  --noti-bg: 41, 47, 56;
+  --noti-bg-alpha: 0.98;
+  --noti-bg-darker: rgb(33, 39, 47);
+  --noti-bg-hover: rgba(232, 237, 243, 0.06);
+  --noti-bg-focus: rgba(255, 180, 84, 0.08);
+  --noti-close-bg: transparent;
+  --noti-close-bg-hover: rgba(232, 237, 243, 0.1);
+  --noti-urgent: var(--alert);
+  --noti-low: var(--muted);
+
+  --text-color: var(--foreground);
+  --text-color-disabled: var(--muted);
+  --bg-selected: rgba(255, 180, 84, 0.18);
+
+  --notification-icon-size: 42px;
+  --notification-app-icon-size: 16px;
+  --notification-group-icon-size: 20px;
+  --notification-shadow: none;
+  --font-size-summary: 14px;
+  --font-size-body: 13px;
+}
+
+* {
+  color: var(--foreground);
+  font-family: sans-serif;
+  font-size: 14px;
+  text-transform: none;
+}
+
+.control-center {
+  background: var(--cc-bg);
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 8px;
+}
+
+.control-center-list {
+  background: transparent;
+}
+
+.control-center-list-placeholder {
+  color: var(--muted);
+  opacity: 0.8;
+  padding: 24px 16px;
+}
+
+.widgets > .widget {
+  background: rgba(232, 237, 243, 0.04);
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: none;
+  padding: var(--padding);
+}
+
+.widget-title {
+  color: var(--foreground);
+}
+
+.widget-title > button,
+.widget-inhibitors > button,
+.widget-menubar > box > button,
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background: rgba(232, 237, 243, 0.05);
+  border: none;
+  border-radius: 7px;
+  box-shadow: none;
+  color: var(--foreground);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.widget-title > button:hover,
+.widget-inhibitors > button:hover,
+.widget-menubar > box > button:hover,
+.widget-buttons-grid > flowbox > flowboxchild > button:hover,
+.widget-mpris > box > button:hover {
+  background: rgba(255, 180, 84, 0.12);
+  color: var(--accent);
+}
+
+.widget-dnd > switch {
+  background: rgba(232, 237, 243, 0.14);
+  border: none;
+  border-radius: 999px;
+  transition: background 0.15s ease;
+}
+
+.widget-dnd > switch:checked {
+  background: var(--accent);
+}
+
+.widget-dnd > switch > slider {
+  background: var(--foreground);
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.widget-dnd > switch:checked > slider {
+  background: var(--background);
+}
+
+.notification-row {
+  background: transparent;
+  margin: 0;
+  outline: none;
+  padding: 0;
+}
+
+.notification-row:focus {
+  background: transparent;
+}
+
+.notification-row .notification-background {
+  background: transparent;
+  border-radius: var(--border-radius);
+  margin: 0 2px 8px;
+  padding: 0;
+}
+
+.notification-row .notification-background .notification {
+  background: rgba(var(--noti-bg), var(--noti-bg-alpha));
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: none;
+  padding: 0;
+  transition: background 0.15s ease;
+}
+
+.notification-row:focus .notification-background .notification {
+  background: rgba(48, 55, 65, 0.98);
+}
+
+.notification-row .notification-background .notification.critical {
+  box-shadow: inset 3px 0 0 rgba(245, 94, 100, 0.8);
+}
+
+.notification .notification-default-action {
+  background: transparent;
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: none;
+  color: var(--foreground);
+  margin: 0;
+  padding: 0;
+}
+
+.notification .notification-default-action:hover {
+  background: var(--noti-bg-hover);
+}
+
+.notification .notification-default-action:not(:only-child) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.notification .notification-content {
+  background: transparent;
+  border-radius: var(--border-radius);
+  padding: 10px 12px;
+}
+
+.notification .notification-content .image {
+  -gtk-icon-filter: none;
+  -gtk-icon-size: var(--notification-icon-size);
+  border-radius: 8px;
+  margin: 2px 10px 2px 0;
+}
+
+.notification .notification-content .app-icon {
+  -gtk-icon-filter: none;
+  -gtk-icon-size: var(--notification-app-icon-size);
+  margin: 0 6px 0 0;
+}
+
+.notification .notification-content .text-box {
+  margin: 0;
+  padding: 0;
+}
+
+.notification .notification-content .text-box label {
+  filter: none;
+}
+
+.notification .summary {
+  background: transparent;
+  color: var(--foreground);
+  font-size: var(--font-size-summary);
+  font-weight: 600;
+  margin-bottom: 3px;
+  text-shadow: none;
+}
+
+.notification .time {
+  background: transparent;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: normal;
+  margin-right: 8px;
+  text-shadow: none;
+}
+
+.notification .body {
+  background: transparent;
+  color: rgba(232, 237, 243, 0.82);
+  font-size: var(--font-size-body);
+  font-weight: normal;
+  text-shadow: none;
+}
+
+.notification .body-image {
+  background: transparent;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.notification .inline-reply {
+  margin-top: 8px;
+}
+
+.notification .inline-reply-entry {
+  background: var(--noti-bg-darker);
+  border: none;
+  border-radius: 7px;
+  caret-color: var(--foreground);
+  color: var(--foreground);
+  padding: 6px 8px;
+}
+
+.notification .inline-reply-button {
+  background: rgba(var(--noti-bg), var(--noti-bg-alpha));
+  border: none;
+  border-radius: 7px;
+  box-shadow: none;
+  color: var(--foreground);
+  margin-left: 6px;
+}
+
+.notification .inline-reply-button:hover {
+  background: var(--noti-bg-hover);
+}
+
+.notification .notification-alt-actions {
+  background: transparent;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  padding: 8px;
+}
+
+.notification .notification-action {
+  margin: 0 4px 0 0;
+  padding: 0;
+}
+
+.notification .notification-action > button {
+  background: rgba(232, 237, 243, 0.05);
+  border: none;
+  border-radius: 6px;
+  box-shadow: none;
+  color: var(--foreground);
+  min-height: 30px;
+  padding: 0 10px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.notification .notification-action > button:hover {
+  background: rgba(255, 180, 84, 0.12);
+  color: var(--accent);
+}
+
+.close-button {
+  background: var(--noti-close-bg);
+  border: none;
+  border-radius: 50%;
+  box-shadow: none;
+  color: var(--muted);
+  margin: 4px;
+  min-height: 20px;
+  min-width: 20px;
+  padding: 0;
+  text-shadow: none;
+}
+
+.close-button image {
+  -gtk-icon-size: 12px;
+}
+
+.close-button:hover {
+  background: var(--noti-close-bg-hover);
+  color: var(--foreground);
+}
+
+.notification-group {
+  background: transparent;
+  border-radius: var(--border-radius);
+  padding: 0;
+  transition: opacity 0.2s ease;
+}
+
+.notification-group .notification-group-headers,
+.notification-group .notification-group-buttons {
+  color: var(--muted);
+  margin: 0 4px 6px;
+}
+
+.notification-group .notification-group-icon {
+  -gtk-icon-size: var(--notification-group-icon-size);
+  color: var(--muted);
+}
+
+.notification-group .notification-group-header {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.notification-group .notification-group-buttons button {
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  box-shadow: none;
+  color: var(--muted);
+  padding: 4px 8px;
+}
+
+.notification-group .notification-group-buttons button:hover {
+  background: var(--noti-bg-hover);
+  color: var(--foreground);
+}
+
+.notification-group .notification-group-buttons .notification-group-collapse-button,
+.notification-group .notification-group-buttons .notification-group-close-all-button {
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  box-shadow: none;
+  color: var(--muted);
+  margin: 0;
+  min-height: 20px;
+  min-width: 20px;
+  padding: 0;
+}
+
+.notification-group .notification-group-buttons .notification-group-collapse-button image,
+.notification-group .notification-group-buttons .notification-group-close-all-button image {
+  -gtk-icon-size: 12px;
+}
+
+.notification-group .notification-group-buttons .notification-group-collapse-button:hover,
+.notification-group .notification-group-buttons .notification-group-close-all-button:hover {
+  background: var(--noti-bg-hover);
+  color: var(--foreground);
+}
+
+.notification-group .notification-group-close-button .close-button {
+  margin: 0;
+}
+
+.control-center .control-center-list .notification {
+  box-shadow: none;
+}
+
+.widget.widget-mpris {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.widget-mpris > carouselindicatordots,
+.widget-mpris > box > button {
+  background: transparent;
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: none;
+  padding: var(--padding);
+}
+
+.widget-mpris > carouselindicatordots {
+  margin: 8px 0 0;
+  padding: 4px 10px;
+}
+
+.widget-mpris-player {
+  background: rgba(232, 237, 243, 0.04);
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: none;
+  margin: 0 0 8px;
+  padding: var(--padding);
+}
+
+.widget-mpris-player:only-child {
+  margin: 0;
+}
