@@ -9,6 +9,8 @@
     ./modules/cursor
     ./modules/gtk
     ./modules/git
+    ./modules/bun
+    ./modules/nodejs
     ./modules/bat
     ./modules/btop
     ./modules/nvim
@@ -40,12 +42,16 @@
     brightnessctl
     pulseaudio
     networkmanager
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+    inter
+    nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
   ];
 
   programs.bash.enable = true;
   programs.uv.enable = true;
-  programs.bun.enable = true;
   programs.firefox.enable = true;
   programs.yazi.enable = true;
   programs.opencode.enable = true;
