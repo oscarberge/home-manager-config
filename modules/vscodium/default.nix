@@ -6,6 +6,7 @@
 
     profiles.default = {
       userSettings = {
+	"git.autofetch" = true;
         "telemetry.feedback.enabled" = false;
         "workbench.iconTheme" = "material-icon-theme";
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
