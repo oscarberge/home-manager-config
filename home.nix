@@ -28,7 +28,21 @@
   home.homeDirectory = "/home/osbe";
   home.stateVersion = "26.05";
 
-  fonts.fontconfig.enable = true;
+  xdg = {
+    enable = true;
+    localBinInPath = true;
+  };
+  home.preferXdgDirectories = true;
+
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      serif = [ "Noto Serif" ];
+      sansSerif = [ "Noto Sans" ];
+      monospace = [ "FiraCode Nerd Font" ];
+      emoji = [ "Noto Color Emoji" ];
+    };
+  };
 
   home.packages = with pkgs; [
     wl-clipboard
