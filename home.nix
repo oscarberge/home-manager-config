@@ -23,6 +23,7 @@
     ./modules/wlsunset
     ./modules/batsignal
     ./modules/swaync
+    ./modules/bash
   ];
 
   home.username = "osbe";
@@ -43,7 +44,6 @@
     networkmanager
   ];
 
-  programs.bash.enable = true;
   programs.uv.enable = true;
   programs.firefox.enable = true;
   programs.yazi.enable = true;
