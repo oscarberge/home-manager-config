@@ -7,6 +7,7 @@ in
   wayland.windowManager.sway = {
     enable = true;
     package = null;
+    systemd.variables = lib.mkAfter [ "XDG_SESSION_ID" ];
 
     config = {
       modifier = mod;
