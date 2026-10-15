@@ -18,7 +18,7 @@
     ./modules/fuzzel
     ./modules/vscodium
     ./modules/starship
-    ./modules/user-dirs
+    ./modules/xdg
     ./modules/wlsunset
     ./modules/batsignal
     ./modules/swaync
@@ -27,12 +27,6 @@
   home.username = "osbe";
   home.homeDirectory = "/home/osbe";
   home.stateVersion = "26.05";
-
-  xdg = {
-    enable = true;
-    localBinInPath = true;
-  };
-  home.preferXdgDirectories = true;
 
   fonts.fontconfig = {
     enable = true;
