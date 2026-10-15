@@ -19,9 +19,6 @@
   --noti-bg-focus: rgba(255, 180, 84, 0.08);
   --noti-close-bg: transparent;
   --noti-close-bg-hover: rgba(232, 237, 243, 0.1);
-  --noti-urgent: var(--alert);
-  --noti-low: var(--muted);
-
   --text-color: var(--foreground);
   --text-color-disabled: var(--muted);
   --bg-selected: rgba(255, 180, 84, 0.18);

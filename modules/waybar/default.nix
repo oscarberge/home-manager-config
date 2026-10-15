@@ -39,7 +39,13 @@
             default = "";
           };
           "persistent-workspaces" = {
-            "*" = [ 1 2 3 4 5 ];
+            "*" = [
+              1
+              2
+              3
+              4
+              5
+            ];
           };
         };
 
@@ -85,7 +91,11 @@
           "format-icons" = {
             headphone = "";
             headset = "󰋎";
-            default = [ "" "" "" ];
+            default = [
+              ""
+              ""
+              ""
+            ];
           };
           "on-click" = "pavucontrol";
         };
@@ -96,9 +106,11 @@
           "format-on" = "󰂯";
           "format-connected" = "󰂱";
           "tooltip-format" = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
-          "tooltip-format-connected" = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
+          "tooltip-format-connected" =
+            "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
           "tooltip-format-enumerate-connected" = "{device_alias}\n{device_address}";
-          "tooltip-format-enumerate-connected-battery" = "{device_alias}\n{device_address}\n{device_battery_percentage}%";
+          "tooltip-format-enumerate-connected-battery" =
+            "{device_alias}\n{device_address}\n{device_battery_percentage}%";
           "on-click" = "ghostty -e bluetui";
         };
 

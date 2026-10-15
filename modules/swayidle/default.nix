@@ -7,7 +7,10 @@
       before-sleep = "lock-screen";
     };
     timeouts = [
-      { timeout = 300; command = "lock-screen"; }
+      {
+        timeout = 300;
+        command = "lock-screen";
+      }
       {
         timeout = 600;
         command = ''swaymsg "output * power off"'';

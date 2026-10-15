@@ -3,6 +3,9 @@
 {
   services.batsignal = {
     enable = true;
-    extraArgs = [ "-I" "battery-low-symbolic" ];
+    extraArgs = [
+      "-I"
+      "battery-low-symbolic"
+    ];
   };
 }

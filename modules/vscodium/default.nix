@@ -8,7 +8,6 @@
       userSettings = {
         "telemetry.feedback.enabled" = false;
         "workbench.iconTheme" = "material-icon-theme";
-        "workbench.colorTheme" = "Kanagawa Wave";
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
         "editor.lineNumbers" = "relative";
         "editor.formatOnSave" = true;
@@ -19,11 +18,17 @@
         "vim.useSystemClipboard" = true;
         "vim.insertModeKeyBindingsNonRecursive" = [
           {
-            before = [ "j" "k" ];
+            before = [
+              "j"
+              "k"
+            ];
             after = [ "<Esc>" ];
           }
           {
-            before = [ "k" "j" ];
+            before = [
+              "k"
+              "j"
+            ];
             after = [ "<Esc>" ];
           }
         ];

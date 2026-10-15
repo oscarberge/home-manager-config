@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   services.swaync = {
@@ -6,38 +6,18 @@
     style = ./style.css;
 
     settings = {
-      "$schema" = "/etc/xdg/swaync/configSchema.json";
+      "$schema" = "${pkgs.swaynotificationcenter}/etc/xdg/swaync/configSchema.json";
 
-      positionX = "right";
-      positionY = "top";
-      "control-center-positionX" = "none";
-      "control-center-positionY" = "none";
       "control-center-margin-top" = 8;
       "control-center-margin-bottom" = 8;
       "control-center-margin-right" = 8;
       "control-center-margin-left" = 8;
-      "control-center-width" = 500;
       "control-center-height" = -1;
       "fit-to-screen" = false;
-      "layer-shell-cover-screen" = true;
-      "image-visibility" = "when-available";
-
-      "layer-shell" = true;
-      layer = "overlay";
       "control-center-layer" = "overlay";
       cssPriority = "user";
-      "notification-body-image-height" = 100;
-      "notification-body-image-width" = 200;
       "notification-inline-replies" = true;
-      timeout = 10;
-      "timeout-low" = 5;
-      "timeout-critical" = 0;
-      "notification-window-width" = 500;
-      "keyboard-shortcuts" = true;
-      "transition-time" = 200;
       "hide-on-clear" = true;
-      "hide-on-action" = true;
-      "script-fail-notify" = true;
 
       widgets = [
         "inhibitors"
@@ -50,21 +30,10 @@
           vexpand = false;
         };
         inhibitors = {
-          text = "Inhibitors";
-          "button-text" = "Clear all";
-          "clear-all-button" = true;
-        };
-        title = {
-          text = "Notifications";
-          "clear-all-button" = false;
           "button-text" = "Clear all";
         };
         dnd = {
           text = "Do not disturb";
-        };
-        label = {
-          "max-lines" = 5;
-          text = "Label text";
         };
         mpris = {
           autohide = true;
