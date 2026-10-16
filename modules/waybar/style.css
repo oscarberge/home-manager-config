@@ -34,6 +34,7 @@ window#waybar {
 
 .modules-center {
   margin: 6px 0;
+  padding: 0;
 }
 
 .modules-right {
@@ -93,28 +94,29 @@ tooltip {
 /* Workspaces */
 #workspaces button {
   all: unset;
+  min-width: 34px;
   min-height: 34px;
-  padding: 0 6px;
-  color: alpha(@workspace, .45);
-  transition: color .15s ease;
+  margin: 0;
+  padding: 0;
+  color: @muted;
+  border-radius: 6px;
+  transition: color .15s ease, background-color .15s ease;
 }
 
 #workspaces button.focused {
-  color: @workspace;
+  color: @foreground;
+  background: alpha(@muted, .10);
+  font-weight: bold;
   text-shadow: 0 0 2px rgba(0, 0, 0, .5);
 }
 
 #workspaces button.persistent:not(.focused):not(.visible),
 #workspaces button.visible:not(.focused) {
-  color: alpha(@workspace, .45);
+  color: @muted;
 }
 
 #workspaces button.urgent {
   color: @alert;
-}
-
-#workspaces button:hover {
-  color: @workspace;
 }
 
 /* Battery and power profile states */
