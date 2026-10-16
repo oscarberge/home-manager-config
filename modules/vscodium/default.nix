@@ -5,31 +5,51 @@
     enable = true;
 
     profiles.default = {
+      enableUpdateCheck = false;
+      enableExtensionUpdateCheck = false;
+
       userSettings = {
-	"git.autofetch" = true;
-        "telemetry.feedback.enabled" = false;
+        # Appearance
+        "workbench.colorTheme" = "Kanagawa Wave";
         "workbench.iconTheme" = "material-icon-theme";
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        "workbench.startupEditor" = "none";
+        "editor.cursorBlinking" = "solid";
         "editor.lineNumbers" = "relative";
-        "editor.formatOnSave" = true;
         "editor.stickyScroll.enabled" = false;
         "terminal.integrated.stickyScroll.enabled" = false;
+
+        # Formatting
+        "editor.formatOnSave" = true;
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        "[python]"."editor.defaultFormatter" = "charliermarsh.ruff";
+        "[xml]"."editor.defaultFormatter" = "redhat.vscode-xml";
+        "[java]"."editor.defaultFormatter" = "redhat.java";
+
+        # Git
+        "git.autofetch" = true;
+
+        # Telemetry / extension first-run prompts
+        "telemetry.feedback.enabled" = false;
         "redhat.telemetry.enabled" = false;
+        "intellij.region" = "europe";
+        "intellij.dataSharing" = "none";
+
+        # Hex editor
+        "hexeditor.columnWidth" = 16;
+        "hexeditor.showDecodedText" = true;
+        "hexeditor.defaultEndianness" = "little";
+        "hexeditor.inspectorType" = "aside";
+
+        # Vim
         "vim.highlightedyank.enable" = true;
         "vim.useSystemClipboard" = true;
         "vim.insertModeKeyBindingsNonRecursive" = [
           {
-            before = [
-              "j"
-              "k"
-            ];
+            before = [ "j" "k" ];
             after = [ "<Esc>" ];
           }
           {
-            before = [
-              "k"
-              "j"
-            ];
+            before = [ "k" "j" ];
             after = [ "<Esc>" ];
           }
         ];
@@ -39,28 +59,22 @@
             commands = [ "editor.action.showHover" ];
           }
         ];
-        "editor.cursorBlinking" = "solid";
-        "intellij.region" = "europe";
-        "intellij.dataSharing" = "none";
-        "workbench.startupEditor" = "none";
-        "python.languageServer" = "Default";
-        "[xml]" = {
-          "editor.defaultFormatter" = "redhat.vscode-xml";
-        };
-        "hexeditor.columnWidth" = 16;
-        "hexeditor.showDecodedText" = true;
-        "hexeditor.defaultEndianness" = "little";
-        "hexeditor.inspectorType" = "aside";
-        "[java]" = {
-          "editor.defaultFormatter" = "redhat.java";
-        };
       };
 
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.open-vsx; [
+        charliermarsh.ruff
+        dbaeumer.vscode-eslint
+        editorconfig.editorconfig
         esbenp.prettier-vscode
+        jetbrains.kotlin-server
+        meta.pyrefly
+        metaphore.kanagawa-vscode-color-theme
+        ms-azuretools.vscode-containers
+        ms-vscode.hexeditor
         pkief.material-icon-theme
         redhat.java
         redhat.vscode-xml
+        redhat.vscode-yaml
         vscodevim.vim
       ];
     };
