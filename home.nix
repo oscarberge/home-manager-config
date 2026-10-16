@@ -24,6 +24,7 @@
     ./modules/batsignal
     ./modules/swaync
     ./modules/bash
+    ./modules/java
   ];
 
   home.username = "osbe";
