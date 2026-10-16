@@ -66,7 +66,7 @@
         dbaeumer.vscode-eslint
         editorconfig.editorconfig
         esbenp.prettier-vscode
-        jetbrains.kotlin-server
+        fwcd.kotlin
         meta.pyrefly
         metaphore.kanagawa-vscode-color-theme
         ms-azuretools.vscode-containers
