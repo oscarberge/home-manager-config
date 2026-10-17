@@ -67,6 +67,7 @@
         editorconfig.editorconfig
         esbenp.prettier-vscode
         fwcd.kotlin
+        jnoortheen.nix-ide
         meta.pyrefly
         metaphore.kanagawa-vscode-color-theme
         ms-azuretools.vscode-containers
