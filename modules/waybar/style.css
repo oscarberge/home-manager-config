@@ -100,12 +100,11 @@ tooltip {
   padding: 0;
   color: @muted;
   border-radius: 6px;
-  transition: color .15s ease, background-color .15s ease;
+  transition: color .15s ease;
 }
 
 #workspaces button.focused {
   color: @foreground;
-  background: alpha(@muted, .10);
   font-weight: bold;
   text-shadow: 0 0 2px rgba(0, 0, 0, .5);
 }
