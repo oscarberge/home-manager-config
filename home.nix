@@ -26,6 +26,7 @@
     ./modules/bash
     ./modules/java
     ./modules/voxtype
+    ./modules/swayosd
   ];
 
   home.username = "osbe";
@@ -33,6 +34,7 @@
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [
+    networkmanager
     wl-clipboard
     grim
     slurp
@@ -41,9 +43,6 @@
     bluetui
     python3
     spotify
-    brightnessctl
-    pulseaudio
-    networkmanager
   ];
 
   programs.uv.enable = true;
