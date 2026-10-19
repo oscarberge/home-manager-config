@@ -22,7 +22,7 @@ in
 
       output."*".bg = "${config.home.homeDirectory}/pictures/bear-friends-autumn.jpg fill";
 
-      # ── Look ────────────────────────────────────────────────────
+      # Look
       gaps = {
         inner = 5;
         smartGaps = true;
@@ -67,7 +67,7 @@ in
         };
       };
 
-      # ── Input ───────────────────────────────────────────────────
+      # Input
       input = {
         "type:touchpad" = {
           tap = "enabled";
@@ -80,7 +80,7 @@ in
         };
       };
 
-      # ── Keybindings ─────────────────────────────────────────────
+      # Keybindings
       keybindings = lib.mkOptionDefault {
         "${mod}+Shift+v" = "exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy";
         "${mod}+Shift+n" = "exec swaync-client -t -sw";
@@ -96,7 +96,7 @@ in
         "--locked XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
       };
 
-      # ── Window rules ────────────────────────────────────────────
+      # Window rules
       window.commands = [
         {
           criteria.class = "^steam_app_";
