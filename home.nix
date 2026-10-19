@@ -25,6 +25,7 @@
     ./modules/swaync
     ./modules/bash
     ./modules/java
+    ./modules/voxtype
   ];
 
   home.username = "osbe";

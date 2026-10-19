@@ -11,10 +11,14 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    voxtype = {
+      url = "github:peteonrails/voxtype/v1.1.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { nixpkgs, home-manager, nix-vscode-extensions, ... }:
+    { nixpkgs, home-manager, nix-vscode-extensions, voxtype, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -26,7 +30,13 @@
     {
       homeConfigurations."osbe" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+          voxtype.homeManagerModules.default
+          {
+            programs.voxtype.package = voxtype.packages.${system}.vulkan;
+          }
+        ];
       };
     };
 }
