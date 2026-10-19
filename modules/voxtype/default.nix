@@ -13,6 +13,7 @@
       output.mode = "type";
       output.fallback_to_clipboard = true;
       output.notification.on_transcription = false;
+      osd.frontend = "gtk4";
     };
   };
 

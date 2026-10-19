@@ -24,18 +24,17 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-	overlays = [ nix-vscode-extensions.overlays.default ];
+        overlays = [ nix-vscode-extensions.overlays.default ];
       };
     in
     {
       homeConfigurations."osbe" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+        extraSpecialArgs = { inherit system voxtype; };
         modules = [
           ./home.nix
           voxtype.homeManagerModules.default
-          {
-            programs.voxtype.package = voxtype.packages.${system}.vulkan;
-          }
+          ./modules/voxtype/package.nix
         ];
       };
     };
