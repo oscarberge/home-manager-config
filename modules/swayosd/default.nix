@@ -4,7 +4,7 @@
   services.swayosd = {
     enable = true;
     topMargin = 0.95;
-    #stylePath = ./style.css;
+    stylePath = ./style.css;
   };
 
   wayland.windowManager.sway.config.keybindings = lib.mkOptionDefault {
