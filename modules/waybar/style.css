@@ -1,130 +1,110 @@
-@define-color background #3b302a;
-@define-color foreground #e8edf3;
-@define-color accent #ffb454;
-@define-color muted #aab5c1;
-@define-color alert #f55e64;
-@define-color launcher #7ebae4;
-@define-color workspace #e8bd70;
-@define-color success #26a65b;
-@define-color power_saver #a8c686;
-
-/* Typography */
 * {
-  font-size: 14px;
-  font-family: "JetBrainsMono Nerd Font Propo";
+  font-size: @FONT_SIZE@px;
+  font-family: @FONT_FAMILY@;
 }
 
 window#waybar {
-  all: unset;
+  min-height: @BAR_HEIGHT@px;
+  color: @foreground;
+  background-color: @background;
 }
 
-/* Bar group surfaces and outer gutters */
 .modules-left,
 .modules-center,
 .modules-right {
-  min-height: 34px;
-  padding: 0 5px;
-  border-radius: 8px;
-  background: alpha(@background, .75);
+  min-height: @BAR_HEIGHT@px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
 }
 
 .modules-left {
-  margin: 6px 0 6px 6px;
-}
-
-.modules-center {
-  margin: 6px 0;
-  padding: 0;
+  margin-left: @EDGE_INSET@px;
 }
 
 .modules-right {
-  margin: 6px 6px 6px 0;
+  margin-right: @EDGE_INSET@px;
 }
 
-.modules-left > *,
-.modules-center > *,
-.modules-right > *,
-#group-expand > * {
-  min-height: 34px;
-}
-
-/* Shared module treatment */
 #custom-launcher,
 #clock,
 #pulseaudio,
 #bluetooth,
 #network,
 #power-profiles-daemon,
-#battery,
-#cpu,
-#memory,
-#temperature {
-  padding: 0 5px;
+#battery {
+  min-height: @BAR_HEIGHT@px;
+  margin: 0;
+  padding: 0;
   color: @foreground;
   transition: color .15s ease;
 }
 
-#clock:hover,
 #custom-launcher:hover,
+#clock:hover,
 #pulseaudio:hover,
 #bluetooth:hover,
 #network:hover,
 #power-profiles-daemon:hover,
-#battery:hover,
-#cpu:hover,
-#memory:hover,
-#temperature:hover {
-  color: @accent;
+#battery:hover {
+  color: @foreground_hover;
 }
 
 tooltip {
-  background: @background;
   color: @foreground;
-  border-radius: 8px;
+  background-color: @background;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-#custom-launcher {
-  color: @launcher;
-}
-
-#custom-separator {
-  color: alpha(@muted, .55);
-}
-
-/* Workspaces */
 #workspaces button {
   all: unset;
-  min-width: 34px;
-  min-height: 34px;
+  min-width: 0;
+  min-height: @BAR_HEIGHT@px;
   margin: 0;
   padding: 0;
   color: @muted;
-  border-radius: 6px;
   transition: color .15s ease;
+}
+
+#workspaces button:hover {
+  color: @muted_hover;
 }
 
 #workspaces button.focused {
   color: @foreground;
   font-weight: bold;
-  text-shadow: 0 0 2px rgba(0, 0, 0, .5);
 }
 
-#workspaces button.persistent:not(.focused):not(.visible),
-#workspaces button.visible:not(.focused) {
-  color: @muted;
+#workspaces button.focused:hover {
+  color: @foreground_hover;
 }
 
 #workspaces button.urgent {
   color: @alert;
 }
 
-/* Battery and power profile states */
+#workspaces button.urgent:hover {
+  color: @alert_hover;
+}
+
 #battery.charging {
   color: @success;
 }
 
+#battery.charging:hover {
+  color: @success_hover;
+}
+
 #battery.warning:not(.charging) {
   color: @accent;
+}
+
+#battery.warning:not(.charging):hover {
+  color: @accent_hover;
 }
 
 #battery.critical:not(.charging) {
@@ -132,37 +112,42 @@ tooltip {
   animation: blink .5s linear infinite alternate;
 }
 
-/* Expandable module group */
-#group-expand,
-#custom-expand {
-  padding: 0 4px;
-}
-
-#custom-expand {
-  color: alpha(@muted, .65);
-  text-shadow: 0 0 2px rgba(0, 0, 0, .7);
-  transition: color .15s ease;
-}
-
-#custom-expand:hover {
-  color: @foreground;
-}
-
-#custom-endpoint {
-  color: alpha(@muted, .55);
+#battery.critical:not(.charging):hover {
+  animation-name: blink-hover;
 }
 
 #power-profiles-daemon.performance {
   color: @accent;
 }
 
+#power-profiles-daemon.performance:hover {
+  color: @accent_hover;
+}
+
 #power-profiles-daemon.power-saver {
   color: @power_saver;
 }
 
-/* Critical battery animation */
+#power-profiles-daemon.power-saver:hover {
+  color: @power_saver_hover;
+}
+
 @keyframes blink {
-  to {
+  from {
     color: @alert;
+  }
+
+  to {
+    color: @background;
+  }
+}
+
+@keyframes blink-hover {
+  from {
+    color: @alert_hover;
+  }
+
+  to {
+    color: @background_hover;
   }
 }

@@ -1,20 +1,83 @@
-{ ... }:
+{ pkgs, ... }:
+
+let
+  design = {
+    barHeight = 24;
+    fontFamily = "JetBrainsMono Nerd Font Propo";
+    fontSize = 12;
+    gap = 8;
+    edgeInset = 8;
+    hoverBrightness = 0.9;
+
+    colors = {
+      background = "#242424";
+      foreground = "#e8edf3";
+      muted = "#aab5c1";
+      alert = "#f55e64";
+      accent = "#ffb454";
+      success = "#26a65b";
+      power_saver = "#a8c686";
+    };
+  };
+
+  hexDigits = "0123456789abcdef";
+  hexToInt = value: (builtins.fromTOML "value = 0x${value}").value;
+  toHex = value:
+    "${builtins.substring (builtins.div value 16) 1 hexDigits}${builtins.substring (value - (builtins.div value 16 * 16)) 1 hexDigits}";
+  hoverColor = color:
+    let
+      channel = offset:
+        builtins.floor (
+          hexToInt (builtins.substring offset 2 color) * design.hoverBrightness + 0.5
+        );
+    in
+    "#${toHex (channel 1)}${toHex (channel 3)}${toHex (channel 5)}";
+
+  colorDefinitions = builtins.concatStringsSep "\n" (
+    builtins.concatLists (
+      map
+        (name: [
+          "@define-color ${name} ${design.colors.${name}};"
+          "@define-color ${name}_hover ${hoverColor design.colors.${name}};"
+        ])
+        (builtins.attrNames design.colors)
+    )
+  );
+
+  stylesheet = builtins.replaceStrings
+    [ "@BAR_HEIGHT@" "@EDGE_INSET@" "@FONT_FAMILY@" "@FONT_SIZE@" ]
+    [
+      (toString design.barHeight)
+      (toString design.edgeInset)
+      "\"${design.fontFamily}\""
+      (toString design.fontSize)
+    ]
+    (builtins.readFile ./style.css);
+in
 
 {
   programs.waybar = {
     enable = true;
     systemd.enable = true;
-    style = ./style.css;
+    package = pkgs.waybar.overrideAttrs (old: {
+      # Sway workspaces are a nested GtkBox; use the same configured gap as the outer module rows.
+      postPatch = (old.postPatch or "") + ''
+        substituteInPlace src/modules/sway/workspaces.cpp \
+          --replace-fail 'box_(bar.orientation, 0)' 'box_(bar.orientation, config["spacing"].asInt())'
+      '';
+    });
+    style = builtins.toFile "waybar.css" "${colorDefinitions}\n${stylesheet}";
     settings = {
       mainBar = {
         layer = "top";
         position = "top";
         exclusive = true;
+        height = design.barHeight;
+        spacing = design.gap;
         reload_style_on_change = true;
 
         "modules-left" = [
           "custom/launcher"
-          "custom/separator"
           "clock"
         ];
 
@@ -23,7 +86,6 @@
         ];
 
         "modules-right" = [
-          "group/expand"
           "pulseaudio"
           "bluetooth"
           "network"
@@ -34,6 +96,7 @@
         "sway/workspaces" = {
           "disable-scroll" = true;
           "all-outputs" = true;
+          spacing = design.gap;
           format = "{name}";
           "persistent-workspaces" = {
             "*" = [
@@ -52,18 +115,13 @@
           "on-click" = "fuzzel";
         };
 
-        "custom/separator" = {
-          format = "|";
-          tooltip = false;
-        };
-
         clock = {
           format = "{:%H:%M:%S}";
           interval = 1;
           "tooltip-format" = "<tt>{calendar}</tt>";
           calendar = {
             format = {
-              today = "<span color='#e8edf3'><b>{}</b></span>";
+              today = "<span color='${design.colors.foreground}'><b>{}</b></span>";
             };
           };
           actions = {
@@ -141,47 +199,6 @@
             "power-saver" = "";
           };
         };
-
-        "custom/expand" = {
-          format = "";
-          tooltip = false;
-        };
-
-        "custom/endpoint" = {
-          format = "|";
-          tooltip = false;
-        };
-
-        "group/expand" = {
-          orientation = "horizontal";
-          drawer = {
-            "transition-duration" = 600;
-            "transition-to-left" = true;
-            "click-to-reveal" = true;
-          };
-          modules = [
-            "custom/expand"
-            "cpu"
-            "memory"
-            "temperature"
-            "custom/endpoint"
-          ];
-        };
-
-        cpu = {
-          format = "";
-          tooltip = true;
-        };
-
-        memory = {
-          format = "";
-        };
-
-        temperature = {
-          "critical-threshold" = 80;
-          format = "";
-        };
-
       };
     };
   };
