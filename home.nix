@@ -4,7 +4,7 @@
   imports = [
     ./modules/sway
     ./modules/swayidle
-    ./modules/waylock
+    ./modules/lock-screen
     ./modules/waybar
     ./modules/fonts
     ./modules/cursor

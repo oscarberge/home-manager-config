@@ -83,7 +83,6 @@ in
       # ── Keybindings ─────────────────────────────────────────────
       keybindings = lib.mkOptionDefault {
         "${mod}+Shift+v" = "exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy";
-        "${mod}+Escape" = "exec lock-screen";
         "${mod}+Shift+n" = "exec swaync-client -t -sw";
 
         "${mod}+p" = ''exec grim -g "$(slurp)" - | wl-copy'';
