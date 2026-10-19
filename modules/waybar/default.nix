@@ -5,9 +5,9 @@ let
     barHeight = 24;
     fontFamily = "JetBrainsMono Nerd Font Propo";
     fontSize = 12;
-    gap = 8;
-    edgeInset = 8;
-    hoverBrightness = 0.9;
+    gap = 14;
+    edgeInset = 14;
+    hoverBrightness = 0.7;
 
     colors = {
       background = "#242424";
