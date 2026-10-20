@@ -49,10 +49,10 @@ let
     builtins.replaceStrings
       [ "@BAR_HEIGHT @px" "@EDGE_INSET @px" "@FONT_FAMILY @" "@FONT_SIZE @px" ]
       [
-        (toString design.barHeight)
-        (toString design.edgeInset)
+        "${toString design.barHeight}px"
+        "${toString design.edgeInset}px"
         "\"${design.fontFamily}\""
-        (toString design.fontSize)
+        "${toString design.fontSize}px"
       ]
       (builtins.readFile ./style.css);
 in
