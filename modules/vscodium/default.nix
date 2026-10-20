@@ -45,11 +45,17 @@
         "vim.useSystemClipboard" = true;
         "vim.insertModeKeyBindingsNonRecursive" = [
           {
-            before = [ "j" "k" ];
+            before = [
+              "j"
+              "k"
+            ];
             after = [ "<Esc>" ];
           }
           {
-            before = [ "k" "j" ];
+            before = [
+              "k"
+              "j"
+            ];
             after = [ "<Esc>" ];
           }
         ];

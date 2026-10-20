@@ -18,7 +18,13 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, nix-vscode-extensions, voxtype, ... }:
+    {
+      nixpkgs,
+      home-manager,
+      nix-vscode-extensions,
+      voxtype,
+      ...
+    }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {

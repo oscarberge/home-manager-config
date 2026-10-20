@@ -1,10 +1,10 @@
 * {
-  font-size: @FONT_SIZE@px;
-  font-family: @FONT_FAMILY@;
+  font-size: @FONT_SIZE @px;
+  font-family: @FONT_FAMILY @;
 }
 
 window#waybar {
-  min-height: @BAR_HEIGHT@px;
+  min-height: @BAR_HEIGHT @px;
   color: @foreground;
   background-color: @background;
 }
@@ -12,7 +12,7 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-  min-height: @BAR_HEIGHT@px;
+  min-height: @BAR_HEIGHT @px;
   margin: 0;
   padding: 0;
   border: none;
@@ -21,11 +21,11 @@ window#waybar {
 }
 
 .modules-left {
-  margin-left: @EDGE_INSET@px;
+  margin-left: @EDGE_INSET @px;
 }
 
 .modules-right {
-  margin-right: @EDGE_INSET@px;
+  margin-right: @EDGE_INSET @px;
 }
 
 #custom-launcher,
@@ -35,11 +35,11 @@ window#waybar {
 #network,
 #power-profiles-daemon,
 #battery {
-  min-height: @BAR_HEIGHT@px;
+  min-height: @BAR_HEIGHT @px;
   margin: 0;
   padding: 0;
   color: @foreground;
-  transition: color .15s ease;
+  transition: color 0.15s ease;
 }
 
 #custom-launcher:hover,
@@ -63,11 +63,11 @@ tooltip {
 #workspaces button {
   all: unset;
   min-width: 0;
-  min-height: @BAR_HEIGHT@px;
+  min-height: @BAR_HEIGHT @px;
   margin: 0;
   padding: 0;
   color: @muted;
-  transition: color .15s ease;
+  transition: color 0.15s ease;
 }
 
 #workspaces button:hover {
@@ -109,7 +109,7 @@ tooltip {
 
 #battery.critical:not(.charging) {
   color: @alert;
-  animation: blink .5s linear infinite alternate;
+  animation: blink 0.5s linear infinite alternate;
 }
 
 #battery.critical:not(.charging):hover {

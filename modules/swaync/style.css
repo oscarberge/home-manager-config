@@ -77,7 +77,9 @@
   border-radius: 7px;
   box-shadow: none;
   color: var(--foreground);
-  transition: background 0.15s ease, color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
 }
 
 .widget-title > button:hover,
@@ -270,7 +272,9 @@
   color: var(--foreground);
   min-height: 30px;
   padding: 0 10px;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
 }
 
 .notification .notification-action > button:hover {
@@ -338,8 +342,12 @@
   color: var(--foreground);
 }
 
-.notification-group .notification-group-buttons .notification-group-collapse-button,
-.notification-group .notification-group-buttons .notification-group-close-all-button {
+.notification-group
+  .notification-group-buttons
+  .notification-group-collapse-button,
+.notification-group
+  .notification-group-buttons
+  .notification-group-close-all-button {
   background: transparent;
   border: none;
   border-radius: 50%;
@@ -351,13 +359,23 @@
   padding: 0;
 }
 
-.notification-group .notification-group-buttons .notification-group-collapse-button image,
-.notification-group .notification-group-buttons .notification-group-close-all-button image {
+.notification-group
+  .notification-group-buttons
+  .notification-group-collapse-button
+  image,
+.notification-group
+  .notification-group-buttons
+  .notification-group-close-all-button
+  image {
   -gtk-icon-size: 12px;
 }
 
-.notification-group .notification-group-buttons .notification-group-collapse-button:hover,
-.notification-group .notification-group-buttons .notification-group-close-all-button:hover {
+.notification-group
+  .notification-group-buttons
+  .notification-group-collapse-button:hover,
+.notification-group
+  .notification-group-buttons
+  .notification-group-close-all-button:hover {
   background: var(--noti-bg-hover);
   color: var(--foreground);
 }

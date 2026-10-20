@@ -1,4 +1,9 @@
-{ pkgs, system, voxtype, ... }:
+{
+  pkgs,
+  system,
+  voxtype,
+  ...
+}:
 
 let
   voxtypeWithGtkOsd = pkgs.symlinkJoin {

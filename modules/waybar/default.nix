@@ -22,37 +22,39 @@ let
 
   hexDigits = "0123456789abcdef";
   hexToInt = value: (builtins.fromTOML "value = 0x${value}").value;
-  toHex = value:
-    "${builtins.substring (builtins.div value 16) 1 hexDigits}${builtins.substring (value - (builtins.div value 16 * 16)) 1 hexDigits}";
-  hoverColor = color:
+  toHex =
+    value:
+    "${builtins.substring (builtins.div value 16) 1 hexDigits}${
+      builtins.substring (value - (builtins.div value 16 * 16)) 1 hexDigits
+    }";
+  hoverColor =
+    color:
     let
-      channel = offset:
-        builtins.floor (
-          hexToInt (builtins.substring offset 2 color) * design.hoverBrightness + 0.5
-        );
+      channel =
+        offset:
+        builtins.floor (hexToInt (builtins.substring offset 2 color) * design.hoverBrightness + 0.5);
     in
     "#${toHex (channel 1)}${toHex (channel 3)}${toHex (channel 5)}";
 
   colorDefinitions = builtins.concatStringsSep "\n" (
     builtins.concatLists (
-      map
-        (name: [
-          "@define-color ${name} ${design.colors.${name}};"
-          "@define-color ${name}_hover ${hoverColor design.colors.${name}};"
-        ])
-        (builtins.attrNames design.colors)
+      map (name: [
+        "@define-color ${name} ${design.colors.${name}};"
+        "@define-color ${name}_hover ${hoverColor design.colors.${name}};"
+      ]) (builtins.attrNames design.colors)
     )
   );
 
-  stylesheet = builtins.replaceStrings
-    [ "@BAR_HEIGHT@" "@EDGE_INSET@" "@FONT_FAMILY@" "@FONT_SIZE@" ]
-    [
-      (toString design.barHeight)
-      (toString design.edgeInset)
-      "\"${design.fontFamily}\""
-      (toString design.fontSize)
-    ]
-    (builtins.readFile ./style.css);
+  stylesheet =
+    builtins.replaceStrings
+      [ "@BAR_HEIGHT @px" "@EDGE_INSET @px" "@FONT_FAMILY @" "@FONT_SIZE @px" ]
+      [
+        (toString design.barHeight)
+        (toString design.edgeInset)
+        "\"${design.fontFamily}\""
+        (toString design.fontSize)
+      ]
+      (builtins.readFile ./style.css);
 in
 
 {
