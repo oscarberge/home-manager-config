@@ -6,7 +6,8 @@ let
     fontFamily = "JetBrainsMono Nerd Font Propo";
     fontSize = 12;
     gap = 14;
-    edgeInset = 14;
+    edgeInset = 8;
+    leftModuleGap = 8;
     hoverBrightness = 0.7;
 
     colors = {
@@ -47,10 +48,17 @@ let
 
   stylesheet =
     builtins.replaceStrings
-      [ "@BAR_HEIGHT @px" "@EDGE_INSET @px" "@FONT_FAMILY @" "@FONT_SIZE @px" ]
+      [
+        "@BAR_HEIGHT @px"
+        "@EDGE_INSET @px"
+        "@RIGHT_MODULE_GAP_ADDITION @px"
+        "@FONT_FAMILY @"
+        "@FONT_SIZE @px"
+      ]
       [
         "${toString design.barHeight}px"
         "${toString design.edgeInset}px"
+        "${toString (design.gap - design.leftModuleGap)}px"
         "\"${design.fontFamily}\""
         "${toString design.fontSize}px"
       ]
@@ -62,7 +70,7 @@ in
     enable = true;
     systemd.enable = true;
     package = pkgs.waybar.overrideAttrs (old: {
-      # Sway workspaces are a nested GtkBox; use the same configured gap as the outer module rows.
+      # Sway workspaces are a nested GtkBox; apply the configured workspace spacing.
       postPatch = (old.postPatch or "") + ''
         substituteInPlace src/modules/sway/workspaces.cpp \
           --replace-fail 'box_(bar.orientation, 0)' 'box_(bar.orientation, config["spacing"].asInt())'
@@ -75,7 +83,7 @@ in
         position = "top";
         exclusive = true;
         height = design.barHeight;
-        spacing = design.gap;
+        spacing = design.leftModuleGap;
         reload_style_on_change = true;
 
         "modules-left" = [

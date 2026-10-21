@@ -42,6 +42,14 @@ window#waybar {
   transition: color 0.15s ease;
 }
 
+#pulseaudio,
+#bluetooth,
+#network,
+#power-profiles-daemon,
+#battery {
+  margin-left: @RIGHT_MODULE_GAP_ADDITION @px;
+}
+
 #custom-launcher:hover,
 #clock:hover,
 #pulseaudio:hover,
