@@ -85,8 +85,8 @@ in
         "${mod}+Shift+v" = "exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy";
         "${mod}+Shift+n" = "exec swaync-client -t -sw";
 
-        "${mod}+p" = ''exec grim -g "$(slurp)" - | wl-copy'';
-        "${mod}+Shift+p" = "exec grim - | wl-copy";
+        "Print" = ''exec grim -g "$(slurp)" - | wl-copy'';
+        "Shift+Print" = "exec grim - | wl-copy";
       };
 
       # Window rules
