@@ -24,9 +24,15 @@
         "[python]"."editor.defaultFormatter" = "charliermarsh.ruff";
         "[xml]"."editor.defaultFormatter" = "redhat.vscode-xml";
         "[java]"."editor.defaultFormatter" = "redhat.java";
+        "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
 
         # Git
         "git.autofetch" = true;
+
+	# Nix
+        "nix.enableLanguageServer" = true;
+        "nix.serverPath" = "nil";
+        "nix.formatterPath" = "nixfmt";
 
         # Telemetry / extension first-run prompts
         "telemetry.feedback.enabled" = false;
