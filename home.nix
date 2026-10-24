@@ -41,6 +41,8 @@
     libnotify
     pavucontrol
     bluetui
+    nil
+    nixfmt
     python3
     spotify
   ];
