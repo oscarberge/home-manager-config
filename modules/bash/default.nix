@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   programs.bash = {
@@ -9,8 +9,8 @@
       gs = "git status";
       "ga." = "git add .";
       gcm = "git commit -m";
-      hms = "home-manager switch --flake /home/osbe/.config/home-manager#osbe";
-      nrs = "sudo nixos-rebuild switch --flake /home/osbe/nixos-config";
+      hms = "home-manager switch --flake ${config.home.homeDirectory}/.config/home-manager#${config.home.username}";
+      nrs = "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/nixos-config";
     };
   };
 }

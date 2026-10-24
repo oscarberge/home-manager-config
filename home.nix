@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 {
   imports = [
@@ -29,8 +29,8 @@
     ./modules/swayosd
   ];
 
-  home.username = "osbe";
-  home.homeDirectory = "/home/osbe";
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [

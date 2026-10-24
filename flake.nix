@@ -26,6 +26,7 @@
       ...
     }:
     let
+      username = "osbe";
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -34,9 +35,9 @@
       };
     in
     {
-      homeConfigurations."osbe" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit system voxtype; };
+        extraSpecialArgs = { inherit system username voxtype; };
         modules = [
           ./home.nix
           voxtype.homeManagerModules.default
