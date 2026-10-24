@@ -31,8 +31,6 @@
         # Telemetry / extension first-run prompts
         "telemetry.feedback.enabled" = false;
         "redhat.telemetry.enabled" = false;
-        "intellij.region" = "europe";
-        "intellij.dataSharing" = "none";
 
         # Hex editor
         "hexeditor.columnWidth" = 16;
