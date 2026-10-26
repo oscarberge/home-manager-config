@@ -3,6 +3,6 @@
 {
   programs.java = {
     enable = true;
-    package = pkgs.jdk_headless;
+    package = pkgs.openjdk25;
   };
 }
