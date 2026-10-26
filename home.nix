@@ -41,6 +41,7 @@
     libnotify
     pavucontrol
     bluetui
+    binutils
     nil
     nixfmt
     python3
