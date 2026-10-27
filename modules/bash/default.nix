@@ -5,7 +5,7 @@
     enable = true;
     shellAliases = {
       ".." = "cd ..";
-      "..." = "cd ...";
+      "..." = "cd ../..";
       gs = "git status";
       ga = "git add";
       gc = "git commit";
