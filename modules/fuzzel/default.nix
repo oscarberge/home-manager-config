@@ -5,37 +5,36 @@
     enable = true;
     settings = {
       main = {
-        font = "JetBrainsMono Nerd Font Propo:size=11";
-        width = 44;
-        lines = 8;
-        horizontal-pad = 18;
-        vertical-pad = 14;
-        inner-pad = 10;
-        line-height = 30;
+        font = "JetBrainsMono Nerd Font Propo:size=12";
+        width = 40;
+        lines = 7;
+        horizontal-pad = 16;
+        vertical-pad = 12;
+        inner-pad = 8;
+        line-height = 28;
         icons-enabled = "yes";
         terminal = "ghostty -e";
         prompt = "›  ";
-        placeholder = "Search applications";
       };
 
       colors = {
-        background = "1e232af5";
+        background = "242424ff";
         text = "e8edf3ff";
-        prompt = "ffb454ff";
+        prompt = "e8edf3ff";
         placeholder = "aab5c1cc";
         message = "e8edf3ff";
         input = "e8edf3ff";
-        match = "ffb454ff";
-        selection = "ffb45430";
+        match = "e8edf3ff";
+        selection = "aab5c126";
         selection-text = "e8edf3ff";
-        selection-match = "ffb454ff";
-        border = "e0e9f21a";
+        selection-match = "e8edf3ff";
+        border = "242424ff";
       };
 
       border = {
-        width = 1;
-        radius = 8;
-        selection-radius = 6;
+        width = 0;
+        radius = 0;
+        selection-radius = 0;
       };
     };
   };
