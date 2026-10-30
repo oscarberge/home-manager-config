@@ -22,10 +22,14 @@
       lemminx
       yaml-language-server
       taplo
+      prettier
+      stylua
+      shfmt
     ];
 
     plugins = with pkgs.vimPlugins; [
       nvim-lspconfig
+      conform-nvim
       gitsigns-nvim
       telescope-fzf-native-nvim
       {
