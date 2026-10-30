@@ -17,6 +17,7 @@
       ruff
       typescript-language-server
       vscode-langservers-extracted
+      lua-language-server
     ];
 
     plugins = with pkgs.vimPlugins; [
