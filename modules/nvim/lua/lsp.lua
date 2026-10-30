@@ -19,3 +19,4 @@ vim.lsp.config("nil_ls", {
 vim.lsp.enable("nil_ls")
 vim.lsp.enable("pyright")
 vim.lsp.enable("ruff")
+vim.lsp.enable("ts_ls")

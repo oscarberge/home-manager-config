@@ -15,6 +15,7 @@
       nixfmt
       pyright
       ruff
+      typescript-language-server
     ];
 
     plugins = with pkgs.vimPlugins; [
