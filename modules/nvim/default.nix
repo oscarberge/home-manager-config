@@ -21,6 +21,7 @@
       bash-language-server
       lemminx
       yaml-language-server
+      taplo
     ];
 
     plugins = with pkgs.vimPlugins; [
