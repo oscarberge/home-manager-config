@@ -18,6 +18,7 @@
       typescript-language-server
       vscode-langservers-extracted
       lua-language-server
+      bash-language-server
       yaml-language-server
     ];
 
