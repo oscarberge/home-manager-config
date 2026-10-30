@@ -12,7 +12,7 @@
         vertical-pad = 12;
         inner-pad = 8;
         line-height = 28;
-        icons-enabled = "yes";
+        icons-enabled = "no";
         terminal = "ghostty -e";
         prompt = "›  ";
       };
