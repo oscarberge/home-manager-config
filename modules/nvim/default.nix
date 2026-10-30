@@ -58,6 +58,17 @@
         '';
       }
       {
+        plugin = mini-nvim;
+        config = "require('mini.icons').setup()";
+      }
+      {
+        plugin = oil-nvim;
+        config = ''
+          require("oil").setup()
+          vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open file explorer" })
+        '';
+      }
+      {
         plugin = nvim-treesitter.withAllGrammars;
         config = ''
           vim.api.nvim_create_autocmd('FileType', {
