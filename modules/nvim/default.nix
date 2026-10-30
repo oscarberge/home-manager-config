@@ -19,6 +19,7 @@
       vscode-langservers-extracted
       lua-language-server
       bash-language-server
+      lemminx
       yaml-language-server
     ];
 
