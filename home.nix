@@ -14,7 +14,7 @@
     ./modules/nodejs
     ./modules/bat
     ./modules/btop
-    ./modules/nvim
+    ./modules/neovim
     ./modules/ghostty
     ./modules/fuzzel
     ./modules/vscodium
