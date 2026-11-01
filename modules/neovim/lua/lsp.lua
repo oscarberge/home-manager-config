@@ -1,9 +1,10 @@
 vim.diagnostic.config({
-  virtual_text = {
-    prefix = "!",
-    spacing = 2,
-  },
-  severity_sort = true,
+	virtual_lines = true,
+	severity_sort = true,
+})
+
+vim.lsp.config("lua_ls", {
+	settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 })
 
 vim.lsp.enable("nil_ls")
