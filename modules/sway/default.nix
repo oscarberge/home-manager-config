@@ -38,32 +38,32 @@ in
 
       colors = {
         focused = {
-          border = "#d8d8d8";
-          background = "#d8d8d8";
-          text = "#000000";
-          indicator = "#d8d8d8";
-          childBorder = "#d8d8d8";
+          border = "#c89455";
+          background = "#3a332b";
+          text = "#d2b27e";
+          indicator = "#c89455";
+          childBorder = "#c89455";
         };
         focusedInactive = {
-          border = "#333333";
-          background = "#333333";
-          text = "#888888";
-          indicator = "#333333";
-          childBorder = "#333333";
+          border = "#48433a";
+          background = "#303030";
+          text = "#aab5c1";
+          indicator = "#48433a";
+          childBorder = "#48433a";
         };
         unfocused = {
-          border = "#222222";
-          background = "#222222";
-          text = "#888888";
-          indicator = "#222222";
-          childBorder = "#222222";
+          border = "#343434";
+          background = "#292929";
+          text = "#aab5c1";
+          indicator = "#343434";
+          childBorder = "#343434";
         };
         urgent = {
-          border = "#ffffff";
-          background = "#ffffff";
-          text = "#000000";
-          indicator = "#ffffff";
-          childBorder = "#ffffff";
+          border = "#f55e64";
+          background = "#4a2929";
+          text = "#f55e64";
+          indicator = "#f55e64";
+          childBorder = "#f55e64";
         };
       };
 
