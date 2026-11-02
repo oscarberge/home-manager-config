@@ -10,8 +10,6 @@
     ./modules/cursor
     ./modules/gtk
     ./modules/git
-    ./modules/bun
-    ./modules/nodejs
     ./modules/bat
     ./modules/btop
     ./modules/neovim
@@ -46,6 +44,8 @@
     nixfmt
     python3
     spotify
+    nodejs
+    pnpm
   ];
 
   programs.uv.enable = true;
