@@ -9,6 +9,7 @@ let
     edgeInset = 8;
     leftModuleGap = 8;
     hoverBrightness = 0.7;
+    colorTransitionDuration = 0.1;
 
     colors = {
       background = "#242424";
@@ -55,6 +56,7 @@ let
         "@RIGHT_MODULE_GAP_ADDITION @px"
         "@FONT_FAMILY @"
         "@FONT_SIZE @px"
+        "@COLOR_TRANSITION_DURATION @s"
       ]
       [
         "${toString design.barHeight}px"
@@ -62,6 +64,7 @@ let
         "${toString (design.gap - design.leftModuleGap)}px"
         "\"${design.fontFamily}\""
         "${toString design.fontSize}px"
+        "${toString design.colorTransitionDuration}s"
       ]
       (builtins.readFile ./style.css);
 in

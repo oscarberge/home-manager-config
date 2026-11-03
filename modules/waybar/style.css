@@ -39,7 +39,7 @@ window#waybar {
   margin: 0;
   padding: 0;
   color: @foreground;
-  transition: color 0.15s ease;
+  transition: color @COLOR_TRANSITION_DURATION @s ease;
 }
 
 #pulseaudio,
@@ -75,7 +75,7 @@ tooltip {
   margin: 0;
   padding: 0;
   color: @muted;
-  transition: color 0.15s ease;
+  transition: color @COLOR_TRANSITION_DURATION @s ease;
 }
 
 #workspaces button:hover {
