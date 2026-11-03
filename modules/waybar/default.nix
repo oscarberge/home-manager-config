@@ -151,7 +151,7 @@ in
         };
 
         pulseaudio = {
-          format = "<span alpha='70%'>{volume}%</span> {icon}";
+          format = "<span color='${design.colors.muted}'>{volume}%</span> {icon}";
           "format-muted" = "";
           "format-icons" = {
             headphone = "";
