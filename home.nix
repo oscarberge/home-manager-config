@@ -25,6 +25,7 @@
     ./modules/java
     ./modules/voxtype
     ./modules/swayosd
+    ./modules/rust
   ];
 
   home.username = username;
