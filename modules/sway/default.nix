@@ -38,11 +38,11 @@ in
 
       colors = {
         focused = {
-          border = "#c89455";
-          background = "#3a332b";
-          text = "#d2b27e";
-          indicator = "#c89455";
-          childBorder = "#c89455";
+          border = "#7b858e";
+          background = "#3a3d40";
+          text = "#d0d2d4";
+          indicator = "#7b858e";
+          childBorder = "#7b858e";
         };
         focusedInactive = {
           border = "#48433a";
