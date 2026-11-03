@@ -3,13 +3,26 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
+vim.lsp.config("rust_analyzer", {
+	settings = {
+		["rust-analyzer"] = {
+			check = { command = "clippy" },
+		},
+	},
+})
+
 vim.lsp.config("lua_ls", {
-	settings = { Lua = { diagnostics = { globals = { "vim" } } } },
+	settings = {
+		Lua = {
+			diagnostics = { globals = { "vim" } },
+		},
+	},
 })
 
 vim.lsp.enable("nil_ls")
 vim.lsp.enable("pyright")
 vim.lsp.enable("ruff")
+vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("html")
 vim.lsp.enable("cssls")

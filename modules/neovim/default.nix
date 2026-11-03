@@ -25,6 +25,8 @@
       prettier
       stylua
       shfmt
+      rust-analyzer
+      clippy
     ];
 
     plugins = with pkgs.vimPlugins; [
