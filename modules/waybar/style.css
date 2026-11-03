@@ -100,11 +100,11 @@ tooltip {
 }
 
 #battery.charging {
-  color: @success;
+  color: @charging;
 }
 
 #battery.charging:hover {
-  color: @success_hover;
+  color: @charging_hover;
 }
 
 #battery.warning:not(.charging) {

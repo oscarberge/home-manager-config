@@ -17,7 +17,7 @@ let
       alert = "#f55e64";
       warning = "#ffb454";
       performance = "#ffb454";
-      success = "#26a65b";
+      charging = "#26a65b";
       power_saver = "#a8c686";
     };
   };
@@ -152,7 +152,7 @@ in
         };
 
         pulseaudio = {
-          format = "<span color='${design.colors.muted}'>{volume}%</span> {icon}";
+          format = "<span alpha='70%'>{volume}%</span> {icon}";
           "format-muted" = "";
           "format-icons" = {
             headphone = "";
