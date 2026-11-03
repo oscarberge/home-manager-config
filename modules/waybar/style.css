@@ -108,11 +108,11 @@ tooltip {
 }
 
 #battery.warning:not(.charging) {
-  color: @accent;
+  color: @warning;
 }
 
 #battery.warning:not(.charging):hover {
-  color: @accent_hover;
+  color: @warning_hover;
 }
 
 #battery.critical:not(.charging) {
@@ -125,11 +125,11 @@ tooltip {
 }
 
 #power-profiles-daemon.performance {
-  color: @accent;
+  color: @performance;
 }
 
 #power-profiles-daemon.performance:hover {
-  color: @accent_hover;
+  color: @performance_hover;
 }
 
 #power-profiles-daemon.power-saver {

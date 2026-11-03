@@ -15,7 +15,8 @@ let
       foreground = "#e8edf3";
       muted = "#aab5c1";
       alert = "#f55e64";
-      accent = "#ffb454";
+      warning = "#ffb454";
+      performance = "#ffb454";
       success = "#26a65b";
       power_saver = "#a8c686";
     };
