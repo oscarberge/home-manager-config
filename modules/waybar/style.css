@@ -117,10 +117,12 @@ tooltip {
 
 #battery.critical:not(.charging) {
   color: @alert;
-  animation: blink 0.5s linear infinite alternate;
+  transition: none;
+  animation: blink 1.3s steps(13, end) infinite;
 }
 
 #battery.critical:not(.charging):hover {
+  color: @alert_hover;
   animation-name: blink-hover;
 }
 
@@ -141,21 +143,37 @@ tooltip {
 }
 
 @keyframes blink {
-  from {
+  0% {
     color: @alert;
   }
 
-  to {
-    color: @background;
+  76.9230769231% {
+    color: @alert;
+  }
+
+  80.7692307692% {
+    color: rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    color: rgba(0, 0, 0, 0);
   }
 }
 
 @keyframes blink-hover {
-  from {
+  0% {
     color: @alert_hover;
   }
 
-  to {
-    color: @background_hover;
+  76.9230769231% {
+    color: @alert_hover;
+  }
+
+  80.7692307692% {
+    color: rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    color: rgba(0, 0, 0, 0);
   }
 }
