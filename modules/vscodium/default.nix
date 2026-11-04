@@ -29,7 +29,7 @@
         # Git
         "git.autofetch" = true;
 
-	# Nix
+        # Nix
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nil";
         "nix.formatterPath" = "nixfmt";
