@@ -34,6 +34,9 @@
         "nix.serverPath" = "nil";
         "nix.formatterPath" = "nixfmt";
 
+        # Java
+        "java.jdt.ls.java.home" = "${pkgs.openjdk25}/lib/openjdk";
+
         # Telemetry / extension first-run prompts
         "telemetry.feedback.enabled" = false;
         "redhat.telemetry.enabled" = false;
