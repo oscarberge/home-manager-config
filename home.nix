@@ -47,6 +47,7 @@
     spotify
     nodejs
     pnpm
+    file
   ];
 
   programs.uv.enable = true;
