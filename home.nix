@@ -26,6 +26,7 @@
     ./modules/voxtype
     ./modules/swayosd
     ./modules/rust
+    ./modules/direnv
   ];
 
   home.username = username;
