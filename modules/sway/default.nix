@@ -20,6 +20,8 @@ in
 
       bars = [ ];
 
+      defaultWorkspace = "workspace number 1";
+
       output."*".bg = "${config.home.homeDirectory}/pictures/bear-friends-autumn.jpg fill";
 
       # Look
