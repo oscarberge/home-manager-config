@@ -5,6 +5,7 @@
     enable = true;
     enableBashIntegration = true;
     settings = {
+      battery.disabled = true;
       shlvl = {
         disabled = false;
         threshold = 2;
