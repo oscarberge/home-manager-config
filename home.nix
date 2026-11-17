@@ -23,7 +23,6 @@
     ./modules/swaync
     ./modules/bash
     ./modules/java
-    ./modules/voxtype
     ./modules/swayosd
     ./modules/rust
     ./modules/direnv
