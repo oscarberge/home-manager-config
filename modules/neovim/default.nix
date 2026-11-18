@@ -35,6 +35,10 @@
       gitsigns-nvim
       telescope-fzf-native-nvim
       {
+        plugin = blink-cmp;
+        config = "require('blink.cmp').setup()";
+      }
+      {
         plugin = kanagawa-nvim;
         config = "vim.cmd.colorscheme('kanagawa')";
       }

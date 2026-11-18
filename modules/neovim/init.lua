@@ -1,4 +1,4 @@
-require "options"
-require "keymaps"
-require "lsp"
-require "format"
+require("options")
+require("keymaps")
+require("lsp")
+require("format")
