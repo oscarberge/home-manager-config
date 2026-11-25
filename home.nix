@@ -48,8 +48,10 @@
     nodejs
     pnpm
     file
+    kdePackages.kdenlive
   ];
 
+  programs.obs-studio.enable = true;
   programs.uv.enable = true;
   programs.firefox.enable = true;
   programs.yazi.enable = true;
